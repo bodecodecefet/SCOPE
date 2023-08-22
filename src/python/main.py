@@ -92,3 +92,6 @@ while True:
 
     # Atualiza a tela
     pygame.display.update()
+
+#aisodinaoisdnoainsdoaisndoiandoiandoaisndoangnangoa
+#aisfoaifnoainfaisnfoianfoafaf
