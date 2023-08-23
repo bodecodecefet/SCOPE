@@ -52,6 +52,7 @@ def draw_text_with_borders(text, size, color, border_color, x, y):
 
 
 # Função para criar o botão na tela
+# HFSDFHJ
 def draw_button():
     button_rect = pygame.Rect(
         SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
@@ -60,7 +61,7 @@ def draw_button():
         BUTTON_HEIGHT,
     )
 
-    # Renderização do preenchimento do botão
+    # Renderização do preenchimento do botão:
     pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
 
     # Renderização da borda do botão após o preenchimento

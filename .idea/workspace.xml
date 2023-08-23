@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="commit inicial">
-      <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="commit inicial" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,9 +28,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
   <component name="ProjectId" id="2UJoOaQBPBGqyfqRM5DKV1BxGpY" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,15 +36,9 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Leo",
-    "last_opened_file_path": "C:/Users/leofe/OneDrive/Documentos/VirtualEnv/venv/SCOPE",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\leofe\OneDrive\Área de Trabalho\SCOPE\src\python" />
@@ -126,9 +115,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit inicial" />
     <option name="LAST_COMMIT_MESSAGE" value="commit inicial" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="196" height="612" key="Git.Branch.Popup" timestamp="1692753086352">
+      <screen x="0" y="0" width="2560" height="1032" />
+    </state>
+    <state width="196" height="612" key="Git.Branch.Popup/0.0.2560.1032@0.0.2560.1032" timestamp="1692753086352" />
   </component>
 </project>
