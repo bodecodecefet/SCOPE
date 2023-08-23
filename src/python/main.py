@@ -1,5 +1,6 @@
 import pygame
 import sys
+from pathlib import Path
 
 # Inicialização do Pygame
 pygame.init()
@@ -24,7 +25,7 @@ TEXT_SIZE = 70
 GAME_TITLE = "Scope: Mirando Certo"
 
 # Caminho da imagem de fundo
-BACKGROUND_IMAGE_PATH = r"C:\Users\leofe\OneDrive\Documentos\VirtualEnv\venv\SCOPE\src\python\image\fundo_menu.png"
+BACKGROUND_IMAGE_PATH = Path(r"image/fundo_menu.png")
 
 # Inicialização do Pygame
 pygame.init()
