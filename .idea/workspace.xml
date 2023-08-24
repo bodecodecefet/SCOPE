@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="teste2">
+    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="primeira função do botão">
+      <change beforePath="$PROJECT_DIR$/.idea/SCOPE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SCOPE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
     </list>
@@ -146,7 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692671144557</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="teste2">
+      <created>1692911650278</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1692911650278</updated>
+    </task>
+    <task id="LOCAL-00009" summary="primeira função do botão">
+      <created>1692911780480</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1692911780480</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,6 +179,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit inicial" />
     <MESSAGE value="teste" />
-    <option name="LAST_COMMIT_MESSAGE" value="teste" />
+    <MESSAGE value="teste2" />
+    <MESSAGE value="primeira função do botão" />
+    <option name="LAST_COMMIT_MESSAGE" value="primeira função do botão" />
   </component>
 </project>

@@ -18,16 +18,16 @@ BUTTON_TEXT_SIZE = 50
 
 # Configurações do texto
 TEXT_COLOR = (139, 69, 19)  # Marrom
-TEXT_SIZE = 70
+TEXT_SIZE = 80
 
 # Configurações do título do jogo
 GAME_TITLE = "Scope: Mirando Certo"
 
 # Caminho da imagem de fundo
-BACKGROUND_IMAGE_PATH = r"image\fundo_menu.png"  # O caminho da imagem
+BACKGROUND_IMAGE_PATH = R"C:\Users\vfahu\OneDrive - cefet-rj.br\bode.code\imagens\fundo_menu.png"  # O caminho da imagem
 
 # Caminho da imagem de fundo para a segunda tela
-SECOND_PAGE_BACKGROUND_PATH = r"image\tela2.png"  # Caminho da nova imagem de fundo
+SECOND_PAGE_BACKGROUND_PATH = R"C:\Users\vfahu\OneDrive - cefet-rj.br\bode.code\imagens\tela2.png"  # Caminho da nova imagem de fundo
 
 # Criando a tela
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -43,9 +43,13 @@ def draw_text_with_borders(text, size, color, border_color, x, y):
     font = pygame.font.Font(None, size)
     text_surface = font.render(text, True, color)
 
+    # Ajuste este valor para aumentar ou diminuir o tamanho da borda
+    border_offset = 5
+
     # Renderização da borda
     border_surface = font.render(text, True, border_color)
-    border_rect = border_surface.get_rect(center=text_surface.get_rect(center=(x + 2, y + 2)).center)
+    border_rect = border_surface.get_rect(
+        center=text_surface.get_rect(center=(x + border_offset, y + border_offset)).center)
 
     # Desenhar o texto na tela
     screen.blit(border_surface, border_rect)
