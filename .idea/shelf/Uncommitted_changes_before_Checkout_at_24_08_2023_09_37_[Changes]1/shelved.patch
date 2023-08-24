@@ -1,0 +1,113 @@
+Index: src/python/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\nimport sys\r\nfrom pathlib import Path\r\n\r\n# Inicialização do Pygame\r\npygame.init()\r\n\r\n# Configurações da tela\r\nSCREEN_WIDTH = 800\r\nSCREEN_HEIGHT = 600\r\n\r\n# Configurações do botão\r\nBUTTON_WIDTH = 250\r\nBUTTON_HEIGHT = 60\r\nBUTTON_COLOR = (139, 69, 19)  # Marrom\r\nBUTTON_BORDER_COLOR = (160, 82, 45)  # Marrom claro para borda\r\nBUTTON_TEXT_COLOR = (0, 0, 0)  # Preto\r\nBUTTON_TEXT_SIZE = 50\r\n\r\n# Configurações do texto\r\nTEXT_COLOR = (139, 69, 19)  # Marrom\r\nTEXT_SIZE = 70\r\n\r\n# Configurações do título do jogo\r\nGAME_TITLE = \"Scope: Mirando Certo\"\r\n\r\n# Caminho da imagem de fundo\r\nBACKGROUND_IMAGE_PATH = Path(r\"image/fundo_menu.png\")\r\n\r\n# Inicialização do Pygame\r\npygame.init()\r\n\r\n# Criando a tela\r\nscreen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))\r\npygame.display.set_caption(\"Tela de Início\")\r\n\r\n# Carregando a imagem de fundo\r\nbackground_image = pygame.image.load(BACKGROUND_IMAGE_PATH).convert()\r\nbackground_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))\r\n\r\n# Função para criar o texto com bordas\r\ndef draw_text_with_borders(text, size, color, border_color, x, y):\r\n    font = pygame.font.Font(None, size)\r\n    text_surface = font.render(text, True, color)\r\n\r\n    # Renderização da borda\r\n    border_surface = font.render(text, True, border_color)\r\n    border_rect = border_surface.get_rect(center=text_surface.get_rect(center=(x + 2, y + 2)).center)\r\n\r\n    # Desenhar o texto na tela\r\n    screen.blit(border_surface, border_rect)\r\n    screen.blit(text_surface, text_surface.get_rect(center=(x, y)))\r\n\r\n\r\n# Função para criar o botão na tela\r\ndef draw_button():\r\n    button_rect = pygame.Rect(\r\n        SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,\r\n        SCREEN_HEIGHT - 180,\r\n        BUTTON_WIDTH,\r\n        BUTTON_HEIGHT,\r\n    )\r\n\r\n    # Renderização do preenchimento do botão\r\n    pygame.draw.rect(screen, BUTTON_COLOR, button_rect)\r\n\r\n    # Renderização da borda do botão após o preenchimento\r\n    button_border_surface = pygame.Surface((BUTTON_WIDTH + 6, BUTTON_HEIGHT + 6))\r\n    button_border_surface.fill(BUTTON_BORDER_COLOR)\r\n    button_border_rect = button_border_surface.get_rect(center=button_rect.center)\r\n    screen.blit(button_border_surface, button_border_rect)\r\n\r\n    button_text_surface = pygame.font.SysFont(None, BUTTON_TEXT_SIZE).render(\"Start\", True, BUTTON_TEXT_COLOR)\r\n    button_text_rect = button_text_surface.get_rect(center=button_rect.center)\r\n    screen.blit(button_text_surface, button_text_rect)\r\n\r\n# Loop principal do jogo\r\nwhile True:\r\n    for event in pygame.event.get():\r\n        if event.type == pygame.QUIT:\r\n            pygame.quit()\r\n            sys.exit()\r\n\r\n    # Desenha a imagem de fundo\r\n    screen.blit(background_image, (0, 0))\r\n\r\n    # Desenha o título do jogo no topo da tela com bordas\r\n    draw_text_with_borders(GAME_TITLE, TEXT_SIZE, TEXT_COLOR, (0, 0, 0), SCREEN_WIDTH // 2, 150)\r\n\r\n    # Desenha o botão \"Start\"\r\n    draw_button()\r\n\r\n    # Atualiza a tela\r\n    pygame.display.update()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/python/main.py b/src/python/main.py
+--- a/src/python/main.py	(revision b027f2fa0eb079ab2ca91228109efe50e4796bbd)
++++ b/src/python/main.py	(date 1692880575464)
+@@ -1,6 +1,5 @@
+ import pygame
+ import sys
+-from pathlib import Path
+ 
+ # Inicialização do Pygame
+ pygame.init()
+@@ -25,10 +24,7 @@
+ GAME_TITLE = "Scope: Mirando Certo"
+ 
+ # Caminho da imagem de fundo
+-BACKGROUND_IMAGE_PATH = Path(r"image/fundo_menu.png")
+-
+-# Inicialização do Pygame
+-pygame.init()
++BACKGROUND_IMAGE_PATH = R"C:\Users\vfahu\OneDrive - cefet-rj.br\bode.code\Fahur-Scope-Git\src\python\image\imagem_menu.png"  # O caminho da imagem
+ 
+ # Criando a tela
+ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+@@ -38,6 +34,7 @@
+ background_image = pygame.image.load(BACKGROUND_IMAGE_PATH).convert()
+ background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+ 
++
+ # Função para criar o texto com bordas
+ def draw_text_with_borders(text, size, color, border_color, x, y):
+     font = pygame.font.Font(None, size)
+@@ -74,6 +71,7 @@
+     button_text_rect = button_text_surface.get_rect(center=button_rect.center)
+     screen.blit(button_text_surface, button_text_rect)
+ 
++
+ # Loop principal do jogo
+ while True:
+     for event in pygame.event.get():
+Index: README.md
+===================================================================
+diff --git a/README.md b/README.md
+deleted file mode 100644
+--- a/README.md	(revision b027f2fa0eb079ab2ca91228109efe50e4796bbd)
++++ /dev/null	(revision b027f2fa0eb079ab2ca91228109efe50e4796bbd)
+@@ -1,1 +0,0 @@
+-# SCOPE
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5037787e-f071-4850-944f-bde2588130c1\" name=\"Changes\" comment=\"teste\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/python/main.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/python/main.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 4\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2UJoOaQBPBGqyfqRM5DKV1BxGpY\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;Leo&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/leofe/OneDrive/Documentos/VirtualEnv/venv/SCOPE&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\leofe\\OneDrive\\Área de Trabalho\\SCOPE\\src\\python\" />\r\n      <recent name=\"C:\\Users\\leofe\\OneDrive\\Área de Trabalho\\SCOPE\\src\\image\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"SCOPE\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"C:\\Users\\vfahu\\PycharmProjects\\pythonProject\\venv\\Scripts\\python.exe\" />\r\n      <option name=\"SDK_NAME\" value=\"Python 3.9 (pythonProject)\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/src/python\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"false\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/src/python/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5037787e-f071-4850-944f-bde2588130c1\" name=\"Changes\" comment=\"\" />\r\n      <created>1692667012916</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1692667012916</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"commit inicial\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692667170307</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692667170307</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"commit inicial\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692667202744</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692667202744</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"commit inicial\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692667604487</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692667604487</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"commit inicial\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692667664074</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692667664074</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"commit inicial\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692667790401</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692667790401</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"commit inicial\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692670898702</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692670898702</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"teste\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1692671144557</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1692671144557</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"8\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"commit inicial\" />\r\n    <MESSAGE value=\"teste\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"teste\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b027f2fa0eb079ab2ca91228109efe50e4796bbd)
++++ b/.idea/workspace.xml	(date 1692880449717)
+@@ -4,8 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="teste">
++    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="teste2">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/python/image/fundo_menu.png" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -65,8 +67,8 @@
+       <envs>
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+-      <option name="SDK_HOME" value="C:\Users\vfahu\PycharmProjects\pythonProject\venv\Scripts\python.exe" />
+-      <option name="SDK_NAME" value="Python 3.9 (pythonProject)" />
++      <option name="SDK_HOME" value="C:\Users\vfahu\anaconda3\python.exe" />
++      <option name="SDK_NAME" value="Python 3.9" />
+       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/python" />
+       <option name="IS_MODULE_SDK" value="false" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+@@ -146,7 +148,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1692671144557</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="teste2">
++      <created>1692880104500</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1692880104500</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -163,6 +172,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="commit inicial" />
+     <MESSAGE value="teste" />
+-    <option name="LAST_COMMIT_MESSAGE" value="teste" />
++    <MESSAGE value="teste2" />
++    <option name="LAST_COMMIT_MESSAGE" value="teste2" />
+   </component>
+ </project>
+\ No newline at end of file
