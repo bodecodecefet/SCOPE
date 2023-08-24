@@ -74,7 +74,6 @@ def draw_button():
     button_text_rect = button_text_surface.get_rect(center=button_rect.center)
     screen.blit(button_text_surface, button_text_rect)
 
-
 # Loop principal do jogo
 while True:
     for event in pygame.event.get():
