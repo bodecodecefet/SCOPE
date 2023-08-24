@@ -16,7 +16,7 @@ BUTTON_COLOR = (139, 69, 19)  # Marrom
 BUTTON_BORDER_COLOR = (160, 82, 45)  # Marrom claro para borda
 BUTTON_TEXT_COLOR = (0, 0, 0)  # Preto
 BUTTON_TEXT_SIZE = 50
-
+# ASDOOSADOASDOJASD
 # Configurações do texto
 TEXT_COLOR = (139, 69, 19)  # Marrom
 TEXT_SIZE = 70
