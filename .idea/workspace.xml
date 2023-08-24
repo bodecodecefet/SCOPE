@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="teste">
+    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="teste2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
     </list>
@@ -48,7 +48,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Leo&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/leofe/OneDrive/Documentos/VirtualEnv/venv/SCOPE&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -65,8 +65,8 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\vfahu\PycharmProjects\pythonProject\venv\Scripts\python.exe" />
-      <option name="SDK_NAME" value="Python 3.9 (pythonProject)" />
+      <option name="SDK_HOME" value="C:\Users\vfahu\anaconda3\python.exe" />
+      <option name="SDK_NAME" value="Python 3.9" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/python" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
