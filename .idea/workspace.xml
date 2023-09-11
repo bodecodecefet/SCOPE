@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="função de aumento de borda do titulo">
+    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="Botões na primeira tela de pergunta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
     </list>
@@ -169,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692913393113</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Botões na primeira tela de pergunta">
+      <created>1694438690974</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1694438690974</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +196,7 @@
     <MESSAGE value="teste2" />
     <MESSAGE value="primeira função do botão" />
     <MESSAGE value="função de aumento de borda do titulo" />
-    <option name="LAST_COMMIT_MESSAGE" value="função de aumento de borda do titulo" />
+    <MESSAGE value="Botões na primeira tela de pergunta" />
+    <option name="LAST_COMMIT_MESSAGE" value="Botões na primeira tela de pergunta" />
   </component>
 </project>

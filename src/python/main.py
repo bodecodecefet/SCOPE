@@ -23,19 +23,33 @@ TEXT_SIZE = 80
 # Configurações do título do jogo
 GAME_TITLE = "Scope: Mirando Certo"
 
-# Caminho da imagem de fundo
-BACKGROUND_IMAGE_PATH = R"image\fundo_menu.png"  # O caminho da imagem
-
-# Caminho da imagem de fundo para a segunda tela
-SECOND_PAGE_BACKGROUND_PATH = R"image\tela2.png"  # Caminho da nova imagem de fundo
+# Lista de caminhos de imagem para as telas de pergunta
+QUESTION_BACKGROUND_PATHS = [
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+    R"image\pergunta1.png",
+]
 
 # Criando a tela
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Tela de Início")
 
 # Carregando a imagem de fundo
-background_image = pygame.image.load(BACKGROUND_IMAGE_PATH).convert()
+background_image = pygame.image.load(R"image\fundo_menu.png").convert()
 background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
 
 # Função para criar o texto com bordas
 def draw_text_with_borders(text, size, color, border_color, x, y):
@@ -53,6 +67,7 @@ def draw_text_with_borders(text, size, color, border_color, x, y):
     # Desenhar o texto na tela
     screen.blit(border_surface, border_rect)
     screen.blit(text_surface, text_surface.get_rect(center=(x, y)))
+
 
 # Função para criar o botão na tela
 def draw_button():
@@ -76,61 +91,6 @@ def draw_button():
     button_text_rect = button_text_surface.get_rect(center=button_rect.center)
     screen.blit(button_text_surface, button_text_rect)
 
-# Função para criar a segunda tela
-def draw_second_page():
-    # Carrega a imagem de fundo para a segunda tela
-    second_page_background = pygame.image.load(SECOND_PAGE_BACKGROUND_PATH).convert()
-    second_page_background = pygame.transform.scale(second_page_background, (SCREEN_WIDTH, SCREEN_HEIGHT))
-
-    # Desenha a imagem de fundo da segunda tela
-    screen.blit(second_page_background, (0, 0))
-
-# Função para criar os botões na segunda tela
-def draw_buttons_second_page():
-    button_spacing = 20
-    button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2  # Ajuste a posição inicial à esquerda
-    button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2  # Ajuste a posição inicial à direita
-    button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2
-
-    # Desenha 3 botões à esquerda
-    for i in range(3):
-        button_rect = pygame.Rect(
-            button_x_left,
-            button_y + i * (BUTTON_HEIGHT + button_spacing),  # Correção aqui
-            BUTTON_WIDTH,
-            BUTTON_HEIGHT,
-        )
-
-        # Renderização do preenchimento do botão
-        pygame.draw.rect(screen, (255, 255, 255), button_rect)
-
-        # Renderização da borda do botão após o preenchimento
-        button_border_surface = pygame.Surface((BUTTON_WIDTH + 6, BUTTON_HEIGHT + 6))
-        button_border_surface.fill((255, 255, 255))
-        button_border_rect = button_border_surface.get_rect(center=button_rect.center)
-        screen.blit(button_border_surface, button_border_rect)
-
-    button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2  # Reinicializa a posição vertical
-
-    # Desenha 3 botões à direita
-    for i in range(3):
-        button_rect = pygame.Rect(
-            button_x_right,
-            button_y + i * (BUTTON_HEIGHT + button_spacing),  # Correção aqui
-            BUTTON_WIDTH,
-            BUTTON_HEIGHT,
-        )
-
-        # Renderização do preenchimento do botão
-        pygame.draw.rect(screen, (255, 255, 255), button_rect)
-
-        # Renderização da borda do botão após o preenchimento
-        button_border_surface = pygame.Surface((BUTTON_WIDTH + 6, BUTTON_HEIGHT + 6))
-        button_border_surface.fill((255, 255, 255))
-        button_border_rect = button_border_surface.get_rect(center=button_rect.center)
-        screen.blit(button_border_surface, button_border_rect)
-
-    return button_x_left, button_x_right  # Retorna as posições
 
 # Variável de controle para determinar a página
 current_page = "menu"
@@ -148,16 +108,24 @@ button_letter_mapping = {
     5: 'E',
 }
 
+# Contadores de cliques para cada botão
+button_click_counts = {letter: 0 for letter in button_letter_mapping.values()}
+
+
 # Função para mudar de página
 def change_page(page):
     global current_page
     current_page = page
 
-# Função para processar o clique do mouse na segunda tela
-def process_second_page_click(event, button_x_left, button_x_right):
-    global selected_letter
+
+# Função para processar o clique do mouse nas telas de pergunta
+def process_question_page_click(event):
+    global selected_letter, current_question  # Tornar current_question global
     button_spacing = 20
-    button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2  # Correção aqui
+    button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
+    button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
+    button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2
+
     for i in range(6):
         if i < 3:
             button_x = button_x_left
@@ -165,14 +133,29 @@ def process_second_page_click(event, button_x_left, button_x_right):
             button_x = button_x_right
         button_rect = pygame.Rect(
             button_x,
-            button_y + (i % 3) * (BUTTON_HEIGHT + button_spacing),  # Correção aqui
+            button_y + (i % 3) * (BUTTON_HEIGHT + button_spacing),
             BUTTON_WIDTH,
             BUTTON_HEIGHT,
         )
         if button_rect.collidepoint(event.pos):
             selected_letter = button_letter_mapping[i]
-            print(f"Botão {selected_letter} clicado.")
-            change_page("terceira_pagina")
+            # Atualiza o contador de cliques e exibe no terminal
+            button_click_counts[selected_letter] += 1
+            print(f"Botão {selected_letter} foi clicado durante a prova.")
+
+            # Verifica se todas as perguntas foram respondidas
+            if current_question == len(QUESTION_BACKGROUND_PATHS) - 1:
+                print("Contagem de cliques:")
+                for letter, count in button_click_counts.items():
+                    print(f"Botão {letter} foi clicado {count} vezes no total.")
+                pygame.quit()
+                sys.exit()
+            else:
+                current_question += 1
+
+
+# Variável de controle para determinar a pergunta atual
+current_question = 0
 
 # Loop principal do jogo
 while True:
@@ -189,9 +172,10 @@ while True:
                     BUTTON_HEIGHT,
                 )
                 if button_rect.collidepoint(event.pos):
+                    current_question = 0
                     change_page("outra_pagina")
             elif current_page == "outra_pagina":
-                process_second_page_click(event, button_x_left, button_x_right)
+                process_question_page_click(event)
 
     screen.blit(background_image, (0, 0))
 
@@ -199,7 +183,30 @@ while True:
         draw_text_with_borders(GAME_TITLE, TEXT_SIZE, TEXT_COLOR, (0, 0, 0), SCREEN_WIDTH // 2, 150)
         draw_button()
     elif current_page == "outra_pagina":
-        draw_second_page()  # Desenha a segunda tela
-        button_x_left, button_x_right = draw_buttons_second_page()  # Desenha os botões na segunda tela
+        if 0 <= current_question < len(QUESTION_BACKGROUND_PATHS):
+            # Desenha a imagem de fundo da pergunta atual
+            question_background_image = pygame.image.load(QUESTION_BACKGROUND_PATHS[current_question]).convert()
+            question_background_image = pygame.transform.scale(question_background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+            screen.blit(question_background_image, (0, 0))
+
+            # Desenha os botões na tela de pergunta
+            button_spacing = 20
+            button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
+            button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
+            button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2
+
+            for i in range(6):
+                if i < 3:
+                    button_x = button_x_left
+                else:
+                    button_x = button_x_right
+                button_rect = pygame.Rect(
+                    button_x,
+                    button_y + (i % 3) * (BUTTON_HEIGHT + button_spacing),
+                    BUTTON_WIDTH,
+                    BUTTON_HEIGHT,
+                )
+                pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
+                pygame.draw.rect(screen, BUTTON_BORDER_COLOR, button_rect, 6)
 
     pygame.display.update()
