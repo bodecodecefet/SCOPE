@@ -16,6 +16,9 @@ BUTTON_BORDER_COLOR = (160, 82, 45)  # Marrom claro para borda
 BUTTON_TEXT_COLOR = (0, 0, 0)  # Preto
 BUTTON_TEXT_SIZE = 50
 
+# Distância que os botões serão movidos para baixo (em pixels)
+BUTTON_MOVE_DOWN1 = 30
+BUTTON_MOVE_DOWN2 = 110
 # Configurações do texto
 TEXT_COLOR = (139, 69, 19)  # Marrom
 TEXT_SIZE = 80
@@ -50,7 +53,6 @@ pygame.display.set_caption("Tela de Início")
 background_image = pygame.image.load(R"image\fundo_menu.png").convert()
 background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
-
 # Função para criar o texto com bordas
 def draw_text_with_borders(text, size, color, border_color, x, y):
     font = pygame.font.Font(None, size)
@@ -68,12 +70,11 @@ def draw_text_with_borders(text, size, color, border_color, x, y):
     screen.blit(border_surface, border_rect)
     screen.blit(text_surface, text_surface.get_rect(center=(x, y)))
 
-
 # Função para criar o botão na tela
 def draw_button():
     button_rect = pygame.Rect(
         SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
-        SCREEN_HEIGHT - 180,
+        SCREEN_HEIGHT - 180 + BUTTON_MOVE_DOWN1,  # Mover o botão para baixo
         BUTTON_WIDTH,
         BUTTON_HEIGHT,
     )
@@ -90,7 +91,6 @@ def draw_button():
     button_text_surface = pygame.font.SysFont(None, BUTTON_TEXT_SIZE).render("Start", True, BUTTON_TEXT_COLOR)
     button_text_rect = button_text_surface.get_rect(center=button_rect.center)
     screen.blit(button_text_surface, button_text_rect)
-
 
 # Variável de controle para determinar a página
 current_page = "menu"
@@ -111,12 +111,10 @@ button_letter_mapping = {
 # Contadores de cliques para cada botão
 button_click_counts = {letter: 0 for letter in button_letter_mapping.values()}
 
-
 # Função para mudar de página
 def change_page(page):
     global current_page
     current_page = page
-
 
 # Função para processar o clique do mouse nas telas de pergunta
 def process_question_page_click(event):
@@ -124,7 +122,7 @@ def process_question_page_click(event):
     button_spacing = 20
     button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
     button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
-    button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2
+    button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
 
     for i in range(6):
         if i < 3:
@@ -153,7 +151,6 @@ def process_question_page_click(event):
             else:
                 current_question += 1
 
-
 # Variável de controle para determinar a pergunta atual
 current_question = 0
 
@@ -167,7 +164,7 @@ while True:
             if current_page == "menu":
                 button_rect = pygame.Rect(
                     SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
-                    SCREEN_HEIGHT - 180,
+                    SCREEN_HEIGHT - 180 + BUTTON_MOVE_DOWN1,  # Mover o botão para baixo
                     BUTTON_WIDTH,
                     BUTTON_HEIGHT,
                 )
@@ -193,7 +190,7 @@ while True:
             button_spacing = 20
             button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
             button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
-            button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2
+            button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
 
             for i in range(6):
                 if i < 3:
