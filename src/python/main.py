@@ -19,6 +19,11 @@ BUTTON_TEXT_SIZE = 50
 # Distância que os botões serão movidos para baixo (em pixels)
 BUTTON_MOVE_DOWN1 = 30
 BUTTON_MOVE_DOWN2 = 110
+
+# Distância que os botões serão movidos para a direita (em pixels)
+BUTTON_MOVE_RIGHT1 = 0
+BUTTON_MOVE_RIGHT2 = 50
+
 # Configurações do texto
 TEXT_COLOR = (139, 69, 19)  # Marrom
 TEXT_SIZE = 80
@@ -73,7 +78,7 @@ def draw_text_with_borders(text, size, color, border_color, x, y):
 # Função para criar o botão na tela
 def draw_button():
     button_rect = pygame.Rect(
-        SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
+        SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2 + BUTTON_MOVE_RIGHT1,  # Mover o botão para a direita
         SCREEN_HEIGHT - 180 + BUTTON_MOVE_DOWN1,  # Mover o botão para baixo
         BUTTON_WIDTH,
         BUTTON_HEIGHT,
@@ -119,9 +124,9 @@ def change_page(page):
 # Função para processar o clique do mouse nas telas de pergunta
 def process_question_page_click(event):
     global selected_letter, current_question  # Tornar current_question global
-    button_spacing = 20
-    button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
-    button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
+    button_spacing = 55
+    button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 20 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
+    button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
     button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
 
     for i in range(6):
@@ -163,7 +168,7 @@ while True:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if current_page == "menu":
                 button_rect = pygame.Rect(
-                    SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2,
+                    SCREEN_WIDTH // 2 - BUTTON_WIDTH // 2 + BUTTON_MOVE_RIGHT1,  # Mover o botão para a direita
                     SCREEN_HEIGHT - 180 + BUTTON_MOVE_DOWN1,  # Mover o botão para baixo
                     BUTTON_WIDTH,
                     BUTTON_HEIGHT,
@@ -187,23 +192,23 @@ while True:
             screen.blit(question_background_image, (0, 0))
 
             # Desenha os botões na tela de pergunta
-            button_spacing = 20
-            button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
-            button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2
-            button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
-
-            for i in range(6):
-                if i < 3:
-                    button_x = button_x_left
-                else:
-                    button_x = button_x_right
-                button_rect = pygame.Rect(
-                    button_x,
-                    button_y + (i % 3) * (BUTTON_HEIGHT + button_spacing),
-                    BUTTON_WIDTH,
-                    BUTTON_HEIGHT,
-                )
-                pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
-                pygame.draw.rect(screen, BUTTON_BORDER_COLOR, button_rect, 6)
+            # button_spacing = 55
+            # button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 20 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
+            # button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
+            # button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
+            #
+            # for i in range(6):
+            #     if i < 3:
+            #         button_x = button_x_left
+            #     else:
+            #         button_x = button_x_right
+            #     button_rect = pygame.Rect(
+            #         button_x,
+            #         button_y + (i % 3) * (BUTTON_HEIGHT + button_spacing),
+            #         BUTTON_WIDTH,
+            #         BUTTON_HEIGHT,
+            #     )
+            #     pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
+            #     pygame.draw.rect(screen, BUTTON_BORDER_COLOR, button_rect, 6)
 
     pygame.display.update()
