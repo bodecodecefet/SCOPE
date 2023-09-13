@@ -16,6 +16,10 @@ BUTTON_BORDER_COLOR = (160, 82, 45)  # Marrom claro para borda
 BUTTON_TEXT_COLOR = (0, 0, 0)  # Preto
 BUTTON_TEXT_SIZE = 50
 
+# Configurações do texto
+TEXT_COLOR = (139, 69, 19)  # Marrom
+TEXT_SIZE = 80
+
 # Distância que os botões serão movidos para baixo (em pixels)
 BUTTON_MOVE_DOWN1 = 30
 BUTTON_MOVE_DOWN2 = 110
@@ -23,10 +27,6 @@ BUTTON_MOVE_DOWN2 = 110
 # Distância que os botões serão movidos para a direita (em pixels)
 BUTTON_MOVE_RIGHT1 = 0
 BUTTON_MOVE_RIGHT2 = 50
-
-# Configurações do texto
-TEXT_COLOR = (139, 69, 19)  # Marrom
-TEXT_SIZE = 80
 
 # Configurações do título do jogo
 GAME_TITLE = "Scope: Mirando Certo"
@@ -58,6 +58,7 @@ pygame.display.set_caption("Tela de Início")
 background_image = pygame.image.load(R"image\fundo_menu.png").convert()
 background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
+
 # Função para criar o texto com bordas
 def draw_text_with_borders(text, size, color, border_color, x, y):
     font = pygame.font.Font(None, size)
@@ -74,6 +75,7 @@ def draw_text_with_borders(text, size, color, border_color, x, y):
     # Desenhar o texto na tela
     screen.blit(border_surface, border_rect)
     screen.blit(text_surface, text_surface.get_rect(center=(x, y)))
+
 
 # Função para criar o botão na tela
 def draw_button():
@@ -97,6 +99,7 @@ def draw_button():
     button_text_rect = button_text_surface.get_rect(center=button_rect.center)
     screen.blit(button_text_surface, button_text_rect)
 
+
 # Variável de controle para determinar a página
 current_page = "menu"
 
@@ -116,10 +119,12 @@ button_letter_mapping = {
 # Contadores de cliques para cada botão
 button_click_counts = {letter: 0 for letter in button_letter_mapping.values()}
 
+
 # Função para mudar de página
 def change_page(page):
     global current_page
     current_page = page
+
 
 # Função para processar o clique do mouse nas telas de pergunta
 def process_question_page_click(event):
@@ -151,10 +156,15 @@ def process_question_page_click(event):
                 print("Contagem de cliques:")
                 for letter, count in button_click_counts.items():
                     print(f"Botão {letter} foi clicado {count} vezes no total.")
-                pygame.quit()
-                sys.exit()
+                # Determine o botão mais clicado
+                botao_mais_clicado = max(button_click_counts, key=button_click_counts.get)
+
+                # Mude a página para a página de resultado
+                change_page("resultado")
+
             else:
                 current_question += 1
+
 
 # Variável de controle para determinar a pergunta atual
 current_question = 0
@@ -210,5 +220,15 @@ while True:
             #     )
             #     pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
             #     pygame.draw.rect(screen, BUTTON_BORDER_COLOR, button_rect, 6)
+
+    # Após o término do jogo, exibe a imagem correspondente ao botão mais clicado
+    elif current_page == "resultado":
+        # Determine o botão mais clicado
+        botao_mais_clicado = max(button_click_counts, key=button_click_counts.get)
+
+        # Carregue a imagem correspondente ao botão mais clicado
+        imagem_botao_mais_clicado = pygame.image.load(f"image/fundo_resposta_{botao_mais_clicado}.png").convert()
+        imagem_botao_mais_clicado = pygame.transform.scale(imagem_botao_mais_clicado, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        screen.blit(imagem_botao_mais_clicado, (0, 0))
 
     pygame.display.update()
