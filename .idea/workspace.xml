@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="Botões enquadrados, apenas faltando as condições">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imagens/paisagem_1.gif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

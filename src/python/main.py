@@ -33,21 +33,21 @@ GAME_TITLE = "Scope: Mirando Certo"
 
 # Lista de caminhos de imagem para as telas de pergunta
 QUESTION_BACKGROUND_PATHS = [
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
-    R"image\pergunta1.png",
+    R"image\perguntas\pergunta1.png",
+    R"image\perguntas\pergunta2.png",
+    R"image\perguntas\pergunta3.png",
+    R"image\perguntas\pergunta4.png",
+    R"image\perguntas\pergunta5.png",
+    R"image\perguntas\pergunta6.png",
+    R"image\perguntas\pergunta7.png",
+    R"image\perguntas\pergunta8.png",
+    R"image\perguntas\pergunta9.png",
+    R"image\perguntas\pergunta10.png",
+    R"image\perguntas\pergunta11.png",
+    R"image\perguntas\pergunta12.png",
+    R"image\perguntas\pergunta13.png",
+    R"image\perguntas\pergunta14.png",
+    R"image\perguntas\pergunta15.png",
 ]
 
 # Criando a tela
@@ -227,7 +227,7 @@ while True:
         botao_mais_clicado = max(button_click_counts, key=button_click_counts.get)
 
         # Carregue a imagem correspondente ao botão mais clicado
-        imagem_botao_mais_clicado = pygame.image.load(f"image/fundo_resposta_{botao_mais_clicado}.png").convert()
+        imagem_botao_mais_clicado = pygame.image.load(f"image/respostas/fundo_resposta_{botao_mais_clicado}.png").convert()
         imagem_botao_mais_clicado = pygame.transform.scale(imagem_botao_mais_clicado, (SCREEN_WIDTH, SCREEN_HEIGHT))
         screen.blit(imagem_botao_mais_clicado, (0, 0))
 
