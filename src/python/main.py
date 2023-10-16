@@ -5,7 +5,7 @@ import sys
 pygame.init()
 
 # Configurações da tela
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 
 # Configurações do botão
@@ -21,15 +21,15 @@ TEXT_COLOR = (139, 69, 19)  # Marrom
 TEXT_SIZE = 80
 
 # Distância que os botões serão movidos para baixo (em pixels)
-BUTTON_MOVE_DOWN1 = 30
+BUTTON_MOVE_DOWN1 = 80
 BUTTON_MOVE_DOWN2 = 110
 
 # Distância que os botões serão movidos para a direita (em pixels)
 BUTTON_MOVE_RIGHT1 = 0
-BUTTON_MOVE_RIGHT2 = 50
+BUTTON_MOVE_RIGHT2 = 100
 
-# Configurações do título do jogo
-GAME_TITLE = "Scope: Mirando Certo"
+# # Configurações do título do jogo
+# GAME_TITLE = "Scope: Mirando Certo"
 
 # Lista de caminhos de imagem para as telas de pergunta
 QUESTION_BACKGROUND_PATHS = [
@@ -59,22 +59,22 @@ background_image = pygame.image.load(R"image\fundo_menu.png").convert()
 background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
-# Função para criar o texto com bordas
-def draw_text_with_borders(text, size, color, border_color, x, y):
-    font = pygame.font.Font(None, size)
-    text_surface = font.render(text, True, color)
-
-    # Ajuste este valor para aumentar ou diminuir o tamanho da borda
-    border_offset = 5
-
-    # Renderização da borda
-    border_surface = font.render(text, True, border_color)
-    border_rect = border_surface.get_rect(
-        center=text_surface.get_rect(center=(x + border_offset, y + border_offset)).center)
-
-    # Desenhar o texto na tela
-    screen.blit(border_surface, border_rect)
-    screen.blit(text_surface, text_surface.get_rect(center=(x, y)))
+# # Função para criar o texto com bordas
+# def draw_text_with_borders(text, size, color, border_color, x, y):
+#     font = pygame.font.Font(None, size)
+#     text_surface = font.render(text, True, color)
+#
+#     # Ajuste este valor para aumentar ou diminuir o tamanho da borda
+#     border_offset = 5
+#
+#     # Renderização da borda
+#     border_surface = font.render(text, True, border_color)
+#     border_rect = border_surface.get_rect(
+#         center=text_surface.get_rect(center=(x + border_offset, y + border_offset)).center)
+#
+#     # Desenhar o texto na tela
+#     screen.blit(border_surface, border_rect)
+#     screen.blit(text_surface, text_surface.get_rect(center=(x, y)))
 
 
 # Função para criar o botão na tela
@@ -85,19 +85,19 @@ def draw_button():
         BUTTON_WIDTH,
         BUTTON_HEIGHT,
     )
-
-    # Renderização do preenchimento do botão
-    pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
-
-    # Renderização da borda do botão após o preenchimento
-    button_border_surface = pygame.Surface((BUTTON_WIDTH + 6, BUTTON_HEIGHT + 6))
-    button_border_surface.fill(BUTTON_BORDER_COLOR)
-    button_border_rect = button_border_surface.get_rect(center=button_rect.center)
-    screen.blit(button_border_surface, button_border_rect)
-
-    button_text_surface = pygame.font.SysFont(None, BUTTON_TEXT_SIZE).render("Start", True, BUTTON_TEXT_COLOR)
-    button_text_rect = button_text_surface.get_rect(center=button_rect.center)
-    screen.blit(button_text_surface, button_text_rect)
+    #desenha o botão start
+    # # Renderização do preenchimento do botão
+    # pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
+    #
+    # # Renderização da borda do botão após o preenchimento
+    # button_border_surface = pygame.Surface((BUTTON_WIDTH + 6, BUTTON_HEIGHT + 6))
+    # button_border_surface.fill(BUTTON_BORDER_COLOR)
+    # button_border_rect = button_border_surface.get_rect(center=button_rect.center)
+    # screen.blit(button_border_surface, button_border_rect)
+    #
+    # button_text_surface = pygame.font.SysFont(None, BUTTON_TEXT_SIZE).render("Start", True, BUTTON_TEXT_COLOR)
+    # button_text_rect = button_text_surface.get_rect(center=button_rect.center)
+    # screen.blit(button_text_surface, button_text_rect)
 
 
 # Variável de controle para determinar a página
@@ -131,7 +131,7 @@ def process_question_page_click(event):
     global selected_letter, current_question  # Tornar current_question global
     button_spacing = 55
     button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 20 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
-    button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
+    button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2 - 40 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
     button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
 
     for i in range(6):
@@ -192,7 +192,6 @@ while True:
     screen.blit(background_image, (0, 0))
 
     if current_page == "menu":
-        draw_text_with_borders(GAME_TITLE, TEXT_SIZE, TEXT_COLOR, (0, 0, 0), SCREEN_WIDTH // 2, 150)
         draw_button()
     elif current_page == "outra_pagina":
         if 0 <= current_question < len(QUESTION_BACKGROUND_PATHS):
@@ -204,7 +203,7 @@ while True:
             # Desenha os botões na tela de pergunta
             # button_spacing = 55
             # button_x_left = SCREEN_WIDTH // 4 - BUTTON_WIDTH // 20 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
-            # button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
+            # button_x_right = 3 * SCREEN_WIDTH // 4 - BUTTON_WIDTH // 2 - 40 + BUTTON_MOVE_RIGHT2  # Mover os botões para a direita
             # button_y = SCREEN_HEIGHT // 4 - BUTTON_HEIGHT // 2 + BUTTON_MOVE_DOWN2  # Mover os botões para baixo
             #
             # for i in range(6):

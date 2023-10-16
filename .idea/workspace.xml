@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="Botões enquadrados, apenas faltando as condições">
+    <list default="true" id="5037787e-f071-4850-944f-bde2588130c1" name="Changes" comment="MVP Pronto">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imagens/paisagem_1.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/python/image/fundo_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/image/fundo_menu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/python/image/pergunta1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/python/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/python/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Fahur" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +52,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Leo&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/leofe/OneDrive/Documentos/VirtualEnv/venv/SCOPE&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vfahu/OneDrive - cefet-rj.br/bode.code/Fahur-Scope-Git&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
 }</component>
@@ -221,6 +222,7 @@
     <MESSAGE value="Botões na primeira tela de pergunta" />
     <MESSAGE value="Botões quse prontos, só faltando encaixar (resultado no terminal)" />
     <MESSAGE value="Botões enquadrados, apenas faltando as condições" />
-    <option name="LAST_COMMIT_MESSAGE" value="Botões enquadrados, apenas faltando as condições" />
+    <MESSAGE value="MVP Pronto" />
+    <option name="LAST_COMMIT_MESSAGE" value="MVP Pronto" />
   </component>
 </project>
