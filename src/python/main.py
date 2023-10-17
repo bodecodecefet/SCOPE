@@ -33,21 +33,21 @@ BUTTON_MOVE_RIGHT2 = 100
 
 # Lista de caminhos de imagem para as telas de pergunta
 QUESTION_BACKGROUND_PATHS = [
-    R"image\perguntas\pergunta1.png",
-    R"image\perguntas\pergunta2.png",
-    R"image\perguntas\pergunta3.png",
-    R"image\perguntas\pergunta4.png",
-    R"image\perguntas\pergunta5.png",
-    R"image\perguntas\pergunta6.png",
-    R"image\perguntas\pergunta7.png",
-    R"image\perguntas\pergunta8.png",
-    R"image\perguntas\pergunta9.png",
-    R"image\perguntas\pergunta10.png",
-    R"image\perguntas\pergunta11.png",
-    R"image\perguntas\pergunta12.png",
-    R"image\perguntas\pergunta13.png",
-    R"image\perguntas\pergunta14.png",
-    R"image\perguntas\pergunta15.png",
+    R"image\perguntas\2.png",
+    R"image\perguntas\3.png",
+    R"image\perguntas\4.png",
+    R"image\perguntas\5.png",
+    R"image\perguntas\6.png",
+    R"image\perguntas\7.png",
+    R"image\perguntas\8.png",
+    R"image\perguntas\9.png",
+    R"image\perguntas\10.png",
+    R"image\perguntas\11.png",
+    R"image\perguntas\12.png",
+    R"image\perguntas\13.png",
+    R"image\perguntas\14.png",
+    R"image\perguntas\15.png",
+    R"image\perguntas\16.png",
 ]
 
 # Criando a tela
@@ -85,7 +85,7 @@ def draw_button():
         BUTTON_WIDTH,
         BUTTON_HEIGHT,
     )
-    #desenha o botão start
+    ##desenha o botão start
     # # Renderização do preenchimento do botão
     # pygame.draw.rect(screen, BUTTON_COLOR, button_rect)
     #
